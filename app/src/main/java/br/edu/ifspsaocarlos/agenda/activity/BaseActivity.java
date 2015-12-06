@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -20,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,13 +34,13 @@ import br.edu.ifspsaocarlos.agenda.model.Contato;
 
 public class BaseActivity extends AppCompatActivity {
 
+
     //protected ContatoDAO cDAO=new ContatoDAO(this);
     public ListView list;
     public ContatoArrayAdapter adapter;
     protected SearchView searchView;
 
     protected Uri uriContato= ContatoProvider.Contatos.CONTENT_URI;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,15 +94,26 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         ContatoArrayAdapter adapter = (ContatoArrayAdapter)list.getAdapter();
         Contato contact = adapter.getItem(info.position);
 
+<<<<<<< HEAD
         switch(item.getItemId()){
 
             case R.id.delete_item:
                 //cDAO.deleteContact(contact);
                 getContentResolver().delete(ContentUris.withAppendedId(uriContato, contact.getId()), null,null);
+=======
+
+        switch(item.getItemId()){
+            case R.id.delete_item:
+                cDAO.deleteContact(contact);
+>>>>>>> origin/master
                 Toast.makeText(getApplicationContext(), "Removido com sucesso", Toast.LENGTH_SHORT).show();
                 buildListView();
                 return true;
@@ -109,6 +123,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
     protected void buildListView() {
+<<<<<<< HEAD
         //List<Contato> values = cDAO.buscaTodosContatos();
 
         List<Contato> values = new ArrayList<Contato>();
@@ -117,12 +132,16 @@ public class BaseActivity extends AppCompatActivity {
         if (cursor!=null)
             values=cursorTolist(cursor);
 
+=======
+        List<Contato> values = cDAO.buscaTodosContatos();
+>>>>>>> origin/master
         adapter = new ContatoArrayAdapter(this, values);
         list.setAdapter(adapter);
 
     }
 
     protected void buildSearchListView(String query) {
+<<<<<<< HEAD
 
         //List<Contato> values = cDAO.buscaContato(query);
 
@@ -139,11 +158,15 @@ public class BaseActivity extends AppCompatActivity {
         if (cursor!=null)
             values=cursorTolist(cursor);
 
+=======
+        List<Contato> values = cDAO.buscaContato(query);
+>>>>>>> origin/master
         adapter= new ContatoArrayAdapter(this, values);
         list.setAdapter(adapter);
 
     }
 
+<<<<<<< HEAD
     public List<Contato> cursorTolist(Cursor cursor)
     {
         List<Contato> values=new ArrayList<Contato>();
@@ -160,4 +183,6 @@ public class BaseActivity extends AppCompatActivity {
         return values;
     }
 
+=======
+>>>>>>> origin/master
 }

@@ -9,12 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+<<<<<<< HEAD
         <provider
             android:name=".contentprovider.ContatoProvider"
             android:authorities="br.edu.ifspsaocarlos.contatocp.provider"
             android:exported="true" >
         </provider>
 
+=======
+>>>>>>> origin/master
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
