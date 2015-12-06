@@ -1,42 +1,29 @@
 package br.edu.ifspsaocarlos.agenda.activity;
 
-<<<<<<< HEAD
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
-=======
-import android.content.Intent;
->>>>>>> origin/master
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.widget.EditText;
 import android.widget.Toast;
 
 import br.edu.ifspsaocarlos.agenda.R;
-<<<<<<< HEAD
 //import br.edu.ifspsaocarlos.agenda.data.ContatoDAO;
 import br.edu.ifspsaocarlos.agenda.contentprovider.ContatoProvider;
-=======
-import br.edu.ifspsaocarlos.agenda.data.ContatoDAO;
->>>>>>> origin/master
 import br.edu.ifspsaocarlos.agenda.model.Contato;
 
 public class DetalheActivity extends AppCompatActivity {
     private Contato c;
-<<<<<<< HEAD
+
     //private ContatoDAO cDAO;
 
     Uri uriContato= ContatoProvider.Contatos.CONTENT_URI;
 
-=======
-    private ContatoDAO cDAO;
->>>>>>> origin/master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +58,7 @@ public class DetalheActivity extends AppCompatActivity {
             setTitle(c.getNome().substring(0,pos));
         }
 
-<<<<<<< HEAD
       //  cDAO = new ContatoDAO(this);
-=======
-        cDAO = new ContatoDAO(this);
->>>>>>> origin/master
 
     }
 
@@ -122,7 +105,6 @@ public class DetalheActivity extends AppCompatActivity {
         String fone2 = ((EditText) findViewById(R.id.edtFone2)).getText().toString();
         String niver = ((EditText) findViewById(R.id.edtNiver)).getText().toString();
 
-<<<<<<< HEAD
         ContentValues valores=new ContentValues();
         valores.put(ContatoProvider.Contatos.KEY_NOME,  name);
         valores.put(ContatoProvider.Contatos.KEY_FONE,  fone);
@@ -130,9 +112,6 @@ public class DetalheActivity extends AppCompatActivity {
         valores.put(ContatoProvider.Contatos.KEY_FONE2, fone2);
         valores.put(ContatoProvider.Contatos.KEY_NIVER, niver);
 
-
-=======
->>>>>>> origin/master
         if (c==null)
         {
             c = new Contato();
@@ -142,13 +121,9 @@ public class DetalheActivity extends AppCompatActivity {
             c.setFone2(fone2);
             c.setNiver(niver);
 
-<<<<<<< HEAD
             //cDAO.createContact(c);
             getContentResolver().insert(uriContato,valores);
 
-=======
-            cDAO.createContact(c);
->>>>>>> origin/master
             Toast.makeText(this, "Incluído com sucesso", Toast.LENGTH_SHORT).show();
         }
         else
@@ -159,13 +134,10 @@ public class DetalheActivity extends AppCompatActivity {
             c.setFone2(fone2);
             c.setNiver(niver);
 
-<<<<<<< HEAD
+
             //cDAO.updateContact(c);
             getContentResolver().update(ContentUris.withAppendedId(uriContato, c.getId()), valores, null, null);
 
-=======
-            cDAO.updateContact(c);
->>>>>>> origin/master
             Toast.makeText(this, "Alterado com sucesso", Toast.LENGTH_SHORT).show();
         }
 

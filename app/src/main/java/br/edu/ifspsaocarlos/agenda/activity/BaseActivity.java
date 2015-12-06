@@ -94,26 +94,17 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         ContatoArrayAdapter adapter = (ContatoArrayAdapter)list.getAdapter();
         Contato contact = adapter.getItem(info.position);
 
-<<<<<<< HEAD
         switch(item.getItemId()){
 
             case R.id.delete_item:
                 //cDAO.deleteContact(contact);
                 getContentResolver().delete(ContentUris.withAppendedId(uriContato, contact.getId()), null,null);
-=======
 
-        switch(item.getItemId()){
-            case R.id.delete_item:
-                cDAO.deleteContact(contact);
->>>>>>> origin/master
                 Toast.makeText(getApplicationContext(), "Removido com sucesso", Toast.LENGTH_SHORT).show();
                 buildListView();
                 return true;
@@ -123,7 +114,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
     protected void buildListView() {
-<<<<<<< HEAD
+
         //List<Contato> values = cDAO.buscaTodosContatos();
 
         List<Contato> values = new ArrayList<Contato>();
@@ -132,16 +123,12 @@ public class BaseActivity extends AppCompatActivity {
         if (cursor!=null)
             values=cursorTolist(cursor);
 
-=======
-        List<Contato> values = cDAO.buscaTodosContatos();
->>>>>>> origin/master
         adapter = new ContatoArrayAdapter(this, values);
         list.setAdapter(adapter);
 
     }
 
     protected void buildSearchListView(String query) {
-<<<<<<< HEAD
 
         //List<Contato> values = cDAO.buscaContato(query);
 
@@ -158,15 +145,11 @@ public class BaseActivity extends AppCompatActivity {
         if (cursor!=null)
             values=cursorTolist(cursor);
 
-=======
-        List<Contato> values = cDAO.buscaContato(query);
->>>>>>> origin/master
         adapter= new ContatoArrayAdapter(this, values);
         list.setAdapter(adapter);
 
     }
 
-<<<<<<< HEAD
     public List<Contato> cursorTolist(Cursor cursor)
     {
         List<Contato> values=new ArrayList<Contato>();
@@ -182,7 +165,4 @@ public class BaseActivity extends AppCompatActivity {
         }
         return values;
     }
-
-=======
->>>>>>> origin/master
 }
